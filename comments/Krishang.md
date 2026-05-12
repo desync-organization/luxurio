@@ -5,7 +5,7 @@
 
 ## Your Role
 
-You own the **browser side** of MirrorSim.  
+You own the **browser side** of Luxurio.  
 Raj makes the 3D assets. You make those assets come alive in the browser.  
 You are the rendering engine operator, UI builder, and texture pipeline engineer.
 

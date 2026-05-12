@@ -1,4 +1,4 @@
-# MirrorSim — Master Project Plan
+# Luxurio — Master Project Plan
 > *"Shirt on guy." Build ugly. Build real. Build now.*
 
 ---

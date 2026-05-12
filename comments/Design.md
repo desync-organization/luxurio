@@ -1,4 +1,4 @@
-# MirrorSim — Design Document
+# Luxurio — Design Document
 > App Architecture · Repo Structure · UI Design · Complete Tech Stack
 
 ---
@@ -7,7 +7,7 @@
 
 | Field | Value |
 |---|---|
-| Codename | MirrorSim |
+| Codename | Luxurio |
 | Repo Name | `closet-engine` |
 | Type | Browser-based 3D wardrobe simulator |
 | Core Philosophy | Personal wardrobe visualization, not e-commerce |
@@ -269,7 +269,7 @@ Browser (R3F):
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│  MirrorSim                                    [☰ menu]   │
+│  Luxurio                                     [☰ menu]   │
 ├──────────────┬───────────────────────────────────────────┤
 │              │                                           │
 │  BODY        │                                           │

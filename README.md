@@ -1,4 +1,4 @@
-# MirrorSim
+# Luxurio
 
 **A browser-based 3D wardrobe simulator. Try your clothes without wearing them.**
 
@@ -10,7 +10,7 @@
 
 You have 5 T-shirts and 4 jeans. That's 20 outfit combinations. Trying each one physically means 20 clothing changes. Most people give up and default to the same 3 outfits.
 
-MirrorSim solves this with a Sims-style digital wardrobe — a 3D avatar that wears your clothes so you don't have to.
+Luxurio solves this with a Sims-style digital wardrobe — a 3D avatar that wears your clothes so you don't have to.
 
 ---
 

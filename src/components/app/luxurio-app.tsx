@@ -128,7 +128,6 @@ export function LuxurioApp() {
     <main className="flex min-h-screen w-full flex-col">
       <header className="flex h-14 items-center justify-between border-b border-foreground/30 px-4">
         <h1 className="text-sm font-semibold tracking-[0.2em] uppercase">Luxurio</h1>
-        <p className="text-xs tracking-wide uppercase text-foreground/80">Fast Upload Pipeline</p>
       </header>
 
       <div className="flex flex-1">

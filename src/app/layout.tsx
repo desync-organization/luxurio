@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MirrorSim",
+  title: "Luxurio",
   description: "Minimal browser prototype for image upload and background removal.",
-  applicationName: "MirrorSim",
+  applicationName: "Luxurio",
   icons: {
     icon: "/favicon.ico",
   },

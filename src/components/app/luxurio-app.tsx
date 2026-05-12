@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, type MutableRefObject } from "react";
 
 import { ImageUploadPanel, MAX_FILE_SIZE_BYTES } from "@/components/app/image-upload-panel";
 import { NumberTicker } from "@/components/magicui/number-ticker";
+import { GridViewport } from "@/components/scene/grid-viewport";
 import { Separator } from "@/components/ui/separator";
 import {
   preloadBackgroundRemovalAssets,
@@ -181,11 +182,7 @@ export function LuxurioApp() {
         </aside>
 
         <section className="flex flex-1 p-4">
-          <div className="relative flex w-full items-center justify-center overflow-hidden rounded-md border border-foreground/30">
-            <p className="text-xs tracking-wide uppercase text-foreground/80">
-              3D viewport placeholder
-            </p>
-          </div>
+          <GridViewport />
         </section>
       </div>
     </main>

@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type MutableRefObject } from "react";
 
 import { ImageUploadPanel, MAX_FILE_SIZE_BYTES } from "@/components/app/image-upload-panel";
 import { NumberTicker } from "@/components/magicui/number-ticker";
-import { GridViewport } from "@/components/scene/grid-viewport";
+import { GridViewport } from "../scene/grid-viewport";
 import { Separator } from "@/components/ui/separator";
 import {
   preloadBackgroundRemovalAssets,
@@ -24,6 +24,8 @@ export function LuxurioApp() {
   const [removeProgress, setRemoveProgress] = useState(0);
   const [processedCount, setProcessedCount] = useState(0);
   const [engineReady, setEngineReady] = useState(false);
+
+  const [waistValue, setWaistValue] = useState(0);
 
   const sourceObjectUrlRef = useRef<string | null>(null);
 
@@ -133,6 +135,50 @@ export function LuxurioApp() {
       <div className="flex flex-1">
         <aside className="flex w-[22rem] flex-col border-r border-foreground/30">
           <section className="space-y-2 p-4">
+            <Separator />
+
+            <section className="space-y-3 p-4">
+              <div className="flex items-center justify-between">
+                <h2 className="text-xs tracking-wide uppercase">
+                  Body Controls
+                </h2>
+
+                <span className="text-xs text-foreground/60">
+                  Male
+                </span>
+              </div>
+
+              <div className="rounded-md border border-foreground/30 p-3 space-y-4">
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs uppercase">
+                    <span>Waist</span>
+
+                    <span className="text-foreground/70">
+                      {Math.round(30 + waistValue * 12)} in
+                    </span>
+                  </div>
+
+                  <input
+                    type="range"
+                    min={0}
+                    max={1}
+                    step={0.01}
+                    value={waistValue}
+                    onChange={(e) =>
+                      setWaistValue(Number(e.target.value))
+                    }
+                    className="w-full accent-white"
+                  />
+
+                  <div className="flex justify-between text-[10px] uppercase text-foreground/40">
+                    <span>Slim</span>
+                    <span>Wide</span>
+                  </div>
+                </div>
+
+              </div>
+            </section>
             <h2 className="text-xs tracking-wide uppercase">Image Upload</h2>
             <ImageUploadPanel
               isUploading={isUploading}
@@ -181,7 +227,7 @@ export function LuxurioApp() {
         </aside>
 
         <section className="flex flex-1 p-4">
-          <GridViewport />
+          <GridViewport waistValue={waistValue} />
         </section>
       </div>
     </main>

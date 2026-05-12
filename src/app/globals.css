@@ -1,49 +1,42 @@
+
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
-/*
- * MirrorSim — Strict 2-color palette
- * Background: #0c0c0c
- * Foreground: #f5f5f0 (off-white)
- * No other colors allowed at this stage.
- */
-
 :root {
   --radius: 0.625rem;
-  /* Always dark — single theme */
   --background: #0c0c0c;
   --foreground: #f5f5f0;
-  --card: #111111;
+  --card: #0c0c0c;
   --card-foreground: #f5f5f0;
-  --popover: #111111;
+  --popover: #0c0c0c;
   --popover-foreground: #f5f5f0;
   --primary: #f5f5f0;
   --primary-foreground: #0c0c0c;
-  --secondary: #1a1a1a;
+  --secondary: #0c0c0c;
   --secondary-foreground: #f5f5f0;
-  --muted: #1a1a1a;
-  --muted-foreground: #8a8a85;
-  --accent: #1a1a1a;
+  --muted: #0c0c0c;
+  --muted-foreground: #f5f5f0;
+  --accent: #0c0c0c;
   --accent-foreground: #f5f5f0;
   --destructive: #f5f5f0;
-  --border: #262626;
-  --input: #1a1a1a;
+  --border: #f5f5f0;
+  --input: #0c0c0c;
   --ring: #f5f5f0;
   --chart-1: #f5f5f0;
-  --chart-2: #8a8a85;
-  --chart-3: #555550;
-  --chart-4: #333330;
-  --chart-5: #1a1a1a;
+  --chart-2: #0c0c0c;
+  --chart-3: #f5f5f0;
+  --chart-4: #0c0c0c;
+  --chart-5: #f5f5f0;
   --sidebar: #0c0c0c;
   --sidebar-foreground: #f5f5f0;
   --sidebar-primary: #f5f5f0;
   --sidebar-primary-foreground: #0c0c0c;
-  --sidebar-accent: #1a1a1a;
+  --sidebar-accent: #0c0c0c;
   --sidebar-accent-foreground: #f5f5f0;
-  --sidebar-border: #262626;
+  --sidebar-border: #f5f5f0;
   --sidebar-ring: #f5f5f0;
 }
 
@@ -94,12 +87,13 @@
 @layer base {
   * {
     @apply border-border outline-ring/50;
+    box-sizing: border-box;
   }
+  html,
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-sans), system-ui, sans-serif;
-  }
-  html {
-    @apply font-sans;
+    margin: 0;
+    min-height: 100%;
   }
 }

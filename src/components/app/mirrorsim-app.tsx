@@ -131,7 +131,7 @@ export function MirrorSimApp() {
                 </Button>
               ) : null}
 
-              {previewUrl && resultUrl ? (
+              {previewUrl ? (
                 <div className="grid grid-cols-2 gap-2">
                   <div className="space-y-1">
                     <p className="text-[10px] uppercase text-foreground/80">Before</p>
@@ -142,7 +142,13 @@ export function MirrorSimApp() {
                   <div className="space-y-1">
                     <p className="text-[10px] uppercase text-foreground/80">After</p>
                     <div className="relative h-20 overflow-hidden rounded-md border border-foreground/30">
-                      <Image src={resultUrl} alt="After removal" fill unoptimized className="object-contain" />
+                      {resultUrl ? (
+                        <Image src={resultUrl} alt="After removal" fill unoptimized className="object-contain" />
+                      ) : (
+                        <div className="flex h-full items-center justify-center text-[10px] uppercase text-foreground/80">
+                          Waiting
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -180,21 +186,9 @@ export function MirrorSimApp() {
 
         <section className="flex flex-1 p-4">
           <div className="relative flex w-full items-center justify-center overflow-hidden rounded-md border border-foreground/30">
-            {resultUrl ? (
-              <Image src={resultUrl} alt="Background removed result" fill unoptimized className="object-contain" />
-            ) : previewUrl ? (
-              <Image
-                src={previewUrl}
-                alt={fileName ?? "Uploaded image"}
-                fill
-                unoptimized
-                className="object-contain"
-              />
-            ) : (
-              <p className="text-xs tracking-wide uppercase text-foreground/80">
-                3D viewport placeholder
-              </p>
-            )}
+            <p className="text-xs tracking-wide uppercase text-foreground/80">
+              3D viewport placeholder
+            </p>
           </div>
         </section>
       </div>

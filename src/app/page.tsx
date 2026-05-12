@@ -1,5 +1,5 @@
-import { MirrorSimApp } from "@/components/app/mirrorsim-app";
+import { LuxurioApp } from "@/components/app/luxurio-app";
 
 export default function Home() {
-  return <MirrorSimApp />;
+  return <LuxurioApp />;
 }

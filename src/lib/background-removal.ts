@@ -10,10 +10,7 @@ interface RemoveBackgroundOptions {
 let preloadPromise: Promise<void> | null = null;
 
 function getDevice(): Config["device"] {
-  if (typeof navigator !== "undefined" && "gpu" in navigator) {
-    return "gpu";
-  }
-
+  // CPU avoids noisy WebGPU execution-provider warnings in Next.js dev overlay.
   return "cpu";
 }
 

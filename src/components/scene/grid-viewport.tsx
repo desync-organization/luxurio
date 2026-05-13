@@ -7,6 +7,8 @@ import MaleModel from "../models/MaleModel";
 type Props = {
   waistValue: number;
   chestValue: number;
+  heightValue: number;
+  heightCm: number;
 };
 
 function GridScene() {
@@ -28,7 +30,7 @@ function GridScene() {
   );
 }
 
-export function GridViewport({ waistValue, chestValue }: Props) {
+export function GridViewport({ waistValue, chestValue, heightValue, heightCm }: Props) {
   return (
     <div className="h-full w-full overflow-hidden rounded-md border border-foreground/30">
       <Canvas camera={{ fov: 35, position: [0, 1.4, 3] }}>
@@ -51,7 +53,7 @@ export function GridViewport({ waistValue, chestValue }: Props) {
           sectionSize={2}
         />
 
-        <MaleModel waistValue={waistValue} chestValue={chestValue} />
+        <MaleModel waistValue={waistValue} chestValue={chestValue} heightValue={heightValue} heightCm={heightCm} />
 
         <OrbitControls />
 

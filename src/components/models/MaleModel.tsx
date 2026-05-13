@@ -7,12 +7,15 @@ import * as THREE from "three";
 type Props = {
     waistValue: number;
     chestValue: number;
+    heightValue: number;
+    heightCm: number;
 };
 
-export default function MaleModel({ waistValue, chestValue }: Props) {
+export default function MaleModel({ waistValue, chestValue, heightValue, heightCm }: Props) {
     const { scene } = useGLTF("/models/male-base.glb");
 
     const meshRef = useRef<THREE.Mesh | null>(null);
+
 
     useEffect(() => {
         scene.traverse((child) => {
@@ -43,12 +46,30 @@ export default function MaleModel({ waistValue, chestValue }: Props) {
         });
     }, [scene, waistValue, chestValue]);
 
+    const heightScale = heightCm / 175;
+    const baseScale = 1.5;
+    const scaledHeight = baseScale * heightScale;
+
     return (
         <primitive
             object={scene}
-            scale={1.5}
-            rotation={[0.5 * Math.PI, 0, 0.5 * Math.PI]}
-            position={[0, 1.4, 0]}
+            scale={[
+                baseScale,
+                baseScale,
+                scaledHeight
+            ]}
+
+            rotation={[
+                0.5 * Math.PI,
+                0,
+                0.5 * Math.PI
+            ]}
+
+            position={[
+                0,
+                1.4,
+                0
+            ]}
         />
     );
 }

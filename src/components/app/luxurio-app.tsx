@@ -54,9 +54,9 @@ export function LuxurioApp() {
   // =============================
 
   const [waistValue, setWaistValue] = useState(0);
-
-  // NEW MORPH
   const [chestValue, setChestValue] = useState(0);
+  const [heightValue, setHeightValue] = useState(0.5);
+  const [heightCm, setHeightCm] = useState(175);
 
   // FUTURE:
   // const [hipValue, setHipValue] = useState(0);
@@ -311,15 +311,12 @@ export function LuxurioApp() {
                 ============================== */}
 
                 <div className="space-y-2">
-
                   <div className="flex items-center justify-between text-xs uppercase">
-
                     <span>Waist</span>
 
                     <span className="text-foreground/70">
                       {Math.round(30 + waistValue * 12)} in
                     </span>
-
                   </div>
 
                   <input
@@ -333,7 +330,6 @@ export function LuxurioApp() {
                     }
                     className="w-full accent-white"
                   />
-
                 </div>
 
 
@@ -343,15 +339,12 @@ export function LuxurioApp() {
                 ============================== */}
 
                 <div className="space-y-2">
-
                   <div className="flex items-center justify-between text-xs uppercase">
-
                     <span>Chest</span>
 
                     <span className="text-foreground/70">
                       {Math.round(32 + chestValue * 14)} in
                     </span>
-
                   </div>
 
                   <input
@@ -365,7 +358,33 @@ export function LuxurioApp() {
                     }
                     className="w-full accent-white"
                   />
+                </div>
 
+
+
+                {/* =============================
+                    HEIGHT SLIDER
+                ============================== */}
+
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs uppercase">
+                    <span>Height</span>
+
+                    <span className="text-foreground/70">
+                      {heightCm} cm
+                    </span>
+                  </div>
+
+                  <input
+                    type="number"
+                    min={140}
+                    max={220}
+                    value={heightCm}
+                    onChange={(e) =>
+                      setHeightCm(Number(e.target.value))
+                    }
+                    className="w-full rounded border border-white/20 bg-black px-2 py-1 text-sm"
+                  />
                 </div>
 
               </div>
@@ -435,6 +454,8 @@ export function LuxurioApp() {
           <GridViewport
             waistValue={waistValue}
             chestValue={chestValue}
+            heightValue={heightValue}
+            heightCm={heightCm}
           />
 
         </section>

@@ -3,8 +3,10 @@
 import { OrbitControls, Grid } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import MaleModel from "../models/MaleModel";
+import FemaleModel from "../models/FemaleModel";
 
 type Props = {
+  gender: "male" | "female";
   waistValue: number;
   chestValue: number;
   heightCm: number;
@@ -29,7 +31,7 @@ function GridScene() {
   );
 }
 
-export function GridViewport({ waistValue, chestValue, heightCm }: Props) {
+export function GridViewport({ gender, waistValue, chestValue, heightCm }: Props) {
   return (
     <div className="h-full w-full overflow-hidden rounded-md border border-foreground/30">
       <Canvas camera={{ fov: 35, position: [0, 1.4, 3] }}>
@@ -52,7 +54,19 @@ export function GridViewport({ waistValue, chestValue, heightCm }: Props) {
           sectionSize={2}
         />
 
-        <MaleModel waistValue={waistValue} chestValue={chestValue} heightCm={heightCm}/>
+        {gender === "male" ? (
+          <MaleModel
+            waistValue={waistValue}
+            chestValue={chestValue}
+            heightCm={heightCm}
+          />
+        ) : (
+          <FemaleModel
+            waistValue={waistValue}
+            chestValue={chestValue}
+            heightCm={heightCm}
+          />
+        )}
 
         <OrbitControls />
 

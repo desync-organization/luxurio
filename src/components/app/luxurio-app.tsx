@@ -56,6 +56,7 @@ export function LuxurioApp() {
   const [waistValue, setWaistValue] = useState(0);
   const [chestValue, setChestValue] = useState(0);
   const [heightCm, setHeightCm] = useState(175);
+  const [gender, setGender] = useState<"male" | "female">("male");
 
   // FUTURE:
   // const [hipValue, setHipValue] = useState(0);
@@ -290,9 +291,14 @@ export function LuxurioApp() {
                   Body Controls
                 </h2>
 
-                <span className="text-xs text-foreground/60">
-                  Male
-                </span>
+                <button
+                  onClick={() =>
+                    setGender(gender === "male" ? "female" : "male")
+                  }
+                  className="text-xs text-foreground/60 hover:text-white transition"
+                >
+                  {gender === "male" ? "Male" : "Female"}
+                </button>
 
               </div>
 
@@ -451,6 +457,7 @@ export function LuxurioApp() {
         <section className="flex flex-1 p-4">
 
           <GridViewport
+            gender={gender}
             waistValue={waistValue}
             chestValue={chestValue}
             heightCm={heightCm}

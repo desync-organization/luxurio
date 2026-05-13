@@ -10,9 +10,9 @@ type Props = {
     heightCm: number;
 };
 
-export default function MaleModel({ waistValue, chestValue, heightCm}: Props) {
-    const { scene } = useGLTF("/models/male-base.glb");
-
+export default function MaleModel({ waistValue, chestValue, heightCm }: Props) {
+    const gltf = useGLTF("/models/male-base.glb");
+    const scene = gltf.scene.clone();
     const meshRef = useRef<THREE.Mesh | null>(null);
 
 

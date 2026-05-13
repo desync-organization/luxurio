@@ -7,11 +7,11 @@ import * as THREE from "three";
 type Props = {
     waistValue: number;
     chestValue: number;
-    heightValue: number;
+    thighValue: number;
     heightCm: number;
 };
 
-export default function MaleModel({ waistValue, chestValue, heightValue, heightCm }: Props) {
+export default function MaleModel({ waistValue, chestValue, heightCm, thighValue }: Props) {
     const { scene } = useGLTF("/models/male-base.glb");
 
     const meshRef = useRef<THREE.Mesh | null>(null);
@@ -37,14 +37,18 @@ export default function MaleModel({ waistValue, chestValue, heightValue, heightC
                     }
 
                     const chestIndex = mesh.morphTargetDictionary["Chest_Bulk"];
-                    console.log(mesh.morphTargetDictionary);
                     if (chestIndex !== undefined) {
                         mesh.morphTargetInfluences[chestIndex] = chestValue;
+                    }
+
+                    const thighIndex = mesh.morphTargetDictionary["Thigh_Thick"];
+                    if (thighIndex !== undefined) {
+                        mesh.morphTargetInfluences[thighIndex] = thighValue;
                     }
                 }
             }
         });
-    }, [scene, waistValue, chestValue]);
+    }, [scene, waistValue, chestValue, thighValue]);
 
     const heightScale = heightCm / 175;
     const baseScale = 1.5;

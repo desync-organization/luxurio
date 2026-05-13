@@ -55,7 +55,6 @@ export function LuxurioApp() {
 
   const [waistValue, setWaistValue] = useState(0);
   const [chestValue, setChestValue] = useState(0);
-  const [thighValue, setThighValue] = useState(0);
   const [heightCm, setHeightCm] = useState(175);
 
   // FUTURE:
@@ -363,34 +362,6 @@ export function LuxurioApp() {
 
 
                 {/* =============================
-                    THIGH SLIDER
-                ============================== */}
-
-                <div className="space-y-2">
-                  <div className="flex items-center justify-between text-xs uppercase">
-                    <span>Thigh</span>
-
-                    <span className="text-foreground/70">
-                      {Math.round(32 + chestValue * 14)} in
-                    </span>
-                  </div>
-
-                  <input
-                    type="range"
-                    min={0}
-                    max={1}
-                    step={0.01}
-                    value={thighValue}
-                    onChange={(e) =>
-                      setThighValue(Number(e.target.value))
-                    }
-                    className="w-full accent-white"
-                  />
-                </div>
-
-
-
-                {/* =============================
                     HEIGHT SLIDER
                 ============================== */}
 
@@ -482,7 +453,6 @@ export function LuxurioApp() {
           <GridViewport
             waistValue={waistValue}
             chestValue={chestValue}
-            thighValue={thighValue}
             heightCm={heightCm}
           />
 

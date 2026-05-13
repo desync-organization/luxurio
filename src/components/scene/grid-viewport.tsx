@@ -1,7 +1,14 @@
 "use client";
 
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, Grid } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import MaleModel from "../models/MaleModel";
+
+type Props = {
+  waistValue: number;
+  chestValue: number;
+  heightCm: number;
+};
 
 function GridScene() {
   return (
@@ -22,10 +29,33 @@ function GridScene() {
   );
 }
 
-export function GridViewport() {
+export function GridViewport({ waistValue, chestValue, heightCm }: Props) {
   return (
     <div className="h-full w-full overflow-hidden rounded-md border border-foreground/30">
-      <Canvas camera={{ fov: 50, position: [4, 4, 4] }}>
+      <Canvas camera={{ fov: 35, position: [0, 1.4, 3] }}>
+        <ambientLight intensity={1.5} />
+
+        <directionalLight
+          position={[3, 5, 4]}
+          intensity={2}
+        />
+
+        <directionalLight
+          position={[-3, 2, -2]}
+          intensity={1}
+        />
+
+        <Grid
+          args={[10, 10]}
+          cellSize={0.5}
+          cellThickness={0.5}
+          sectionSize={2}
+        />
+
+        <MaleModel waistValue={waistValue} chestValue={chestValue} heightCm={heightCm}/>
+
+        <OrbitControls />
+
         <GridScene />
       </Canvas>
     </div>

@@ -6,9 +6,10 @@ import * as THREE from "three";
 
 type Props = {
     waistValue: number;
+    chestValue: number;
 };
 
-export default function MaleModel({ waistValue }: Props) {
+export default function MaleModel({ waistValue, chestValue }: Props) {
     const { scene } = useGLTF("/models/male-base.glb");
 
     const meshRef = useRef<THREE.Mesh | null>(null);
@@ -27,16 +28,20 @@ export default function MaleModel({ waistValue }: Props) {
                 if (mesh.morphTargetDictionary && mesh.morphTargetInfluences) {
                     meshRef.current = mesh;
 
-                    const waistIndex =
-                        mesh.morphTargetDictionary["Waist_Wide"];
-
+                    const waistIndex = mesh.morphTargetDictionary["Waist_Wide"];
                     if (waistIndex !== undefined) {
                         mesh.morphTargetInfluences[waistIndex] = waistValue;
+                    }
+
+                    const chestIndex = mesh.morphTargetDictionary["Chest_Bulk"];
+                    console.log(mesh.morphTargetDictionary);
+                    if (chestIndex !== undefined) {
+                        mesh.morphTargetInfluences[chestIndex] = chestValue;
                     }
                 }
             }
         });
-    }, [scene, waistValue]);
+    }, [scene, waistValue, chestValue]);
 
     return (
         <primitive
